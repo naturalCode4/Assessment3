@@ -13,16 +13,16 @@ const giveCompliment = event => {
 	alert('Hey. Youre doing great. You are loved by the universe. Press OK and keep going <3')
 }
 
-let form = document.querySelector('form#contact');
-form.addEventListener('submit', handleSubmit);
+// let form = document.querySelector('form#contact');
+// form.addEventListener('submit', handleSubmit);
 
-let image = document.querySelector('img#rubberduck')
-image.addEventListener('mouseover', giveCompliment)
+// let image = document.querySelector('img#rubberduck')
+// image.addEventListener('mouseover', giveCompliment)
 
-let restaurantSection = documement.getElementByID("random-section")
 
 const randomRestaurant = event => {
-	// event.preventDefault()
+
+	restaurantSection.removeChild(restaurantSection.childNodes[2])
 
 	const frasierRestaurants = ['Busuba Thai', 'The Boco Restaurant', 'McDevitt Taco Supply', 'Kathmandu Restaurant II', 'Tsing Tao', "Illegal Pete's"]
 	let random = Math.floor(Math.random() * frasierRestaurants.length)
@@ -30,10 +30,15 @@ const randomRestaurant = event => {
 	console.log(restaurantName)
 
 	const generatedRestaurant = document.createElement('p')
-	restaurantSection.appendChild(generatedRestaurant)
 	generatedRestaurant.textContent=restaurantName
+	restaurantSection.appendChild(generatedRestaurant)
+
+	// event.target.parentNode.append(generatedRestaurant)
 
 }
 
-let restaurantButton = document.getElementByID('random-restaurant-button')
-restaurant.addEventListener('click', randomRestaurant)
+let restaurantSection = document.querySelector('#random-section')
+
+let restaurantButton = document.querySelector('#random-restaurant-button')
+restaurantButton.addEventListener('click', randomRestaurant)
+
